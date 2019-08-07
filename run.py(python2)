@@ -1,0 +1,58 @@
+import random
+import sys
+
+#setup
+introdoction = "Welcome to ghoast game.You have to choose one number. \n If you chose a ghoast door,your life might decrease.There is 10 lives for you."
+rool = "Rool is easy. \n 1 : Choose a level \n 2 : choose a number \n 3 : reapeat number 1 and 2 until your life becomes 0."
+level = [1, 2, 3, 4]
+question = 1
+feelingBrave = True
+
+print introdoction
+print rool
+print "Good Luck!"
+
+userLevel = int(raw_input("\n There is level 1,2,3,and 4.What level do you want to chose? : "))
+life = 10
+
+if userLevel == level[3]:
+    a = 1
+    b = 3
+elif userLevel == level[2] :
+    a = 1
+    b = 5
+elif userLevel == level[1] : 
+    a = 1
+    b = 8
+else : 
+    a = 1
+    b = 10
+
+if userLevel >4 :
+    print"No kiding, Your kicked out of this game forever and ever. Do not do kiding!"
+    sys.exit(0)
+
+print "You chose level "+ str(userLevel)
+
+#gameplay
+
+counter = 0
+while(life != 0):
+    ghoastDoor = random.randint(a, b)
+    selection = int(raw_input("Choose a door you want to open (selection: "+ str(a) + "to " + str(b)+ ") : "))
+    if selection>b:
+        print"No kiding, Your kicked out of this game forever and ever. Do not do kiding!"
+        sys.exit(0)
+    if selection == ghoastDoor:
+        life -= 1
+        print"You chose a ghoast door! You have " + str(life) + " more life."
+
+    counter+=1
+    
+    
+
+feelingBrave == False
+
+if feelingBrave == False:
+    print "You died!  You survived " + str(counter) + " times."
+
